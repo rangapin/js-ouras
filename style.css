@@ -15,12 +15,14 @@
   
   .left {
     left: 0;
-    background-color: white;
-  }
+    background-image: url(images/book.jpeg);  
+    z-index: 1;  
+}
   
   .right {
     right: 0;
     background-image: url(images/books.jpeg);  
+    opacity:  0.7;
 }
   
   .centered {
@@ -43,4 +45,9 @@
     border: 2px solid green;
     box-shadow: 0 0 8px green;
     padding: 8px;
+}
+
+#text {
+    position: relative;
+    bottom: 150px;
 }
