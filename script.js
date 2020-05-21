@@ -97,5 +97,6 @@ function end() {
 
   var seconds = Math.round(timeDiff);  
   var minutes = Math.round(seconds / 60);
-  document.getElementById("quote").innerHTML = (minutes + " minutes" + "<br>" + seconds + " seconds");
+  document.getElementById("quote").innerHTML = ("You have read for:" + " " + minutes + " minutes" + " " +  seconds + " seconds");
+  setTimeout(function(){ location.reload(); ;}, 5000);
 }

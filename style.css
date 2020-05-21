@@ -214,3 +214,25 @@ html, body {
       border: thin solid black;
       opacity: 0.8;
     }
+
+    #genthree {
+      outline: none;
+      padding-top: 5px;
+      text-decoration: none;
+      opacity: 0.6;
+      background-color: #e9e767;
+      color: black;
+      border: thin solid white;
+      height: 100px;
+      width: 150px;
+      border-radius: 8px;
+      transition: 0.5s;
+      padding-bottom: 5px;
+    }
+
+    #genthree:hover {
+      background-color: yellow;
+      color: black;
+      border: thin solid black;
+      opacity: 0.8;
+    }
