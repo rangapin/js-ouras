@@ -1,28 +1,67 @@
-var i = 0;
-var txt = '"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi ea similique voluptates? Voluptates veniam aperiam vitae quis, numquam id quia inventore exercitationem nulla sit. Dicta dolore dignissimos laboriosam maxime architecto!"'; /* The text */
-var speed = 50; 
+function startTime() {
+    var today=new Date();
+    var h=today.getHours();
+    var m=today.getMinutes();
+    var s=today.getSeconds();
+    var ampm = "";
+    m = checkTime(m);
 
-function typeWriter() {
-  if (i < txt.length) {
-    document.getElementById("text").innerHTML += txt.charAt(i);
-    i++;
-    setTimeout(typeWriter, speed);
+    if (h > 12) {
+        h = h - 12;
+        ampm = " PM";
+    } else if (h == 12){
+        h = 12;
+        ampm = " AM";
+    } else if (h < 12){
+        ampm = " AM";
+    } else {
+        ampm = "PM";
+    };
+  
+  if(h==0) {
+    h=12;
   }
+    
+    document.getElementById('display').innerHTML = h+":"+m+ampm;
+    var t = setTimeout(function(){startTime()},500);
 }
 
-var countDownDate = new Date("Jan 5, 2021 15:37:25").getTime();
+function checkTime(i) {
+    if (i<10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}
 
-var x = setInterval(function() {
+var quotes = ["Blank", 
+"\"Dude, suckin' at something is the first step at being sorta good at something.\"<br>-  Jake <small><em>(Adventure Time)</em></small>", 
+"\"Either I will find a way, or I will make one.\"<br> - Philip Sidney", 
+"\"Our greatest weakness lies in giving up. The most certain way to succeed is always to try just one more time.\"<br>- Thomas A. Edison", 
+"\"You are never too old to set another goal or to dream a new dream.\"<br>- C.S Lewis", 
+"\"If you can dream it, you can do it.\"<br>- Walt Disney", 
+"\"Never give up, for that is just the place and time that the tide will turn.\"<br>- Harriet Beecher Stowe", 
+"\"I know where I'm going and I know the truth, and I don't have to be what you want me to be. I'm free to be what I want.\"<br>- Muhammad Ali",
+ "\"If you always put limit on everything you do, physical or anything else. It will spread into your work and into your life. There are no limits. There are only plateaus, and you must not stay there, you must go beyond them.\"<br>- Bruce Lee",];
 
-  var now = new Date().getTime();
-  var distance = countDownDate - now;
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+ function genQuote() {
+    var quote=document.getElementById("quote");
+    var generate = document.getElementById("gen");
+    generate.addEventListener("click", changeText);
+     quote.innerHTML = quotes[0];    
 
-  document.getElementById("timer").innerHTML =  minutes + " minutes " + seconds + " secondes ";
+     function changeText(){
+        var searchTerm =  quote.innerHTML  ;
+        var index=quotes.indexOf(searchTerm)+1;
+        if(index == quotes.length )index=0;
+           var result=quotes[index];
+           quote.innerHTML = result;
+           return;
+        }
+}
 
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("timer").innerHTML = "EXPIRED";
-  }
-}, 1000);
+//quote array
+
+//date
+function startDate() {
+  var d = new Date();
+  var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+  document.getElementById("date").innerHTML = days[d.getDay()]+" | "+[d.getMonth()+1]+"/"+d.getDate()+"/"+d.getFullYear();
+}
