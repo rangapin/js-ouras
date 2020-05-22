@@ -1,4 +1,3 @@
-
 function startTime() {
   var today=new Date();
   var h=today.getHours();
@@ -65,25 +64,6 @@ function genQuote() {
   }
 }
 
-var timeInMinutes = 30;
-var currentTime = Date.parse(new Date());
-var deadline = new Date(currentTime + timeInMinutes * 60 * 1000);
-
-function getTimeRemaining(endtime) {
-  var t = Date.parse(endtime) - Date.parse(new Date());
-  var seconds = Math.floor((t / 1000) % 60);
-  var minutes = Math.floor((t / 1000 / 60) % 60);
-  var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
-  var days = Math.floor(t / (1000 * 60 * 60 * 24));
-  return {
-      'total': t,
-      'days': days,
-      'hours': hours,
-      'minutes': minutes,
-      'seconds': seconds
-  };
-}
-
 var startTime, endTime;
 
 function start() {
@@ -99,4 +79,13 @@ function end() {
   var minutes = Math.round(seconds / 60);
   document.getElementById("quote").innerHTML = ("You have read for:" + " " + minutes + " minutes" + " " +  seconds + " seconds");
   setTimeout(function(){ location.reload(); ;}, 5000);
+}
+
+function report() {
+// results = [];
+// times = document.getElementById("quote").innerHTML;
+// for (i=0; i <= times.length; i++) {
+// results.push(i);
+// return results;
+// }
 }
