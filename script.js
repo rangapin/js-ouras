@@ -74,18 +74,21 @@ function end() {
   endTime = performance.now();
   var timeDiff = endTime - startTime;
   timeDiff /= 1000;
-
+  
   var seconds = Math.round(timeDiff);  
   var minutes = Math.round(seconds / 60);
   document.getElementById("quote").innerHTML = ("You have read for:" + " " + minutes + " minutes" + " " +  seconds + " seconds");
-  setTimeout(function(){ location.reload(); ;}, 5000);
+  // setTimeout(function(){ location.reload(); ;}, 5000);
+  readingTime =   document.getElementById("quote").innerHTML;
+  
 }
 
 function report() {
-// results = [];
-// times = document.getElementById("quote").innerHTML;
-// for (i=0; i <= times.length; i++) {
-// results.push(i);
-// return results;
-// }
+  readingReport = [];
+  for (i=0; i < readingReport.length; i++) {
+    readingReport.push(readingTime);
+    document.getElementById("content").innerHTML = ("<ol>" + readingReport + "</ol>");
+     };
 }
+report();
+
